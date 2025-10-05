@@ -4,13 +4,12 @@ public class OrderItemDto {
     private Long orderItemId;
     private Long productId;
     private String productName;
-    private String productImage; // First image URL
+    private String productImage;
     private int quantity;
     private double price;
     private double subtotal;
 	public OrderItemDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Long getOrderItemId() {
 		return orderItemId;
@@ -55,6 +54,5 @@ public class OrderItemDto {
 		this.subtotal = subtotal;
 	}
 
-    // getters and setters
     
 }

@@ -13,23 +13,22 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Link back to the parent order
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
-    // The product being purchased
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-
-    private int quantity;   // How many units purchased
-    private double price;   // Price per unit at order time
-    private double subtotal; // quantity * price
+    private int quantity;  
+    private double price;  
+    private double subtotal; 
+    
+    
 	public OrderItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -66,6 +65,4 @@ public class OrderItem {
 	public void setSubtotal(double subtotal) {
 		this.subtotal = subtotal;
 	}
-
-    // getters and setters
 }

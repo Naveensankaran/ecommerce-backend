@@ -40,7 +40,6 @@ public class OrderService {
             throw new IllegalArgumentException("Cannot place order with empty cart");
         }
 
-        // Re-validate stock
         for (CartItem ci : cart.getCartItems()) {
             Product product = ci.getProduct();
             if (ci.getQuantity() > product.getStock()) {

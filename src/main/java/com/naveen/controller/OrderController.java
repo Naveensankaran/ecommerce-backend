@@ -32,8 +32,8 @@ public class OrderController {
     }
     
     public static class PlaceOrderRequest {
-        private Address shippingAddress;  // Optional
-        private String phoneNumber;       // Optional
+        private Address shippingAddress;  
+        private String phoneNumber;       
 
         public Address getShippingAddress() {
             return shippingAddress;

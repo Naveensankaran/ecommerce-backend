@@ -51,7 +51,7 @@ public class UserService {
         dto.setEmail(user.getEmail());
         dto.setPhoneNumber(user.getPhoneNumber());
         dto.setAddress(user.getAddress());
-        // ❌ intentionally skip password in DTO for response security
+        //  intentionally skip password in DTO for response security
         return dto;
     }
 }

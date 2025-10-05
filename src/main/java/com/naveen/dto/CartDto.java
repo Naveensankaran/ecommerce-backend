@@ -6,8 +6,7 @@ public class CartDto {
     private Long cartId;
     private double totalAmount;
     private List<CartItemDto> items;
-
-    // Getters and Setters
+    
     public Long getCartId() { return cartId; }
     public void setCartId(Long cartId) { this.cartId = cartId; }
 

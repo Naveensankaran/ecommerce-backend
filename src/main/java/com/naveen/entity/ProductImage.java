@@ -32,7 +32,6 @@ public class ProductImage {
 	}
 	public ProductImage() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public ProductImage(Long id, String publicId, String url) {
 		super();

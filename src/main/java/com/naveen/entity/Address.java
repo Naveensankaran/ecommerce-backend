@@ -13,7 +13,6 @@ public class Address {
     private String state;
     private String pincode;
 
-    // Getters and Setters
     public String getBuildingNo() {
         return buildingNo;
     }

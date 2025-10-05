@@ -1,7 +1,4 @@
 package com.naveen.entity;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +29,6 @@ public class ProductReview {
 	
 	public ProductReview() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {

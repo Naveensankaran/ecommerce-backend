@@ -3,8 +3,6 @@ package com.naveen.entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -22,7 +20,6 @@ import jakarta.validation.constraints.NotNull;
 public class Product {
 	public Product() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,6 +55,20 @@ public class Product {
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
 	private List<ProductReview> review = new ArrayList<>();
+	
+	public Product(Long id, String name, Double price,String category,
+			String description, Double rating, String seller, Integer stock, List<String> image) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.category = category;
+		this.description = description;
+		this.rating = rating;
+		this.seller = seller;
+		this.stock = stock;
+		this.image = image.stream().map( url -> new ProductImage(url,this)).collect(Collectors.toList());
+	}
 	
 	public Long getId() {
 		return id;
@@ -126,19 +137,6 @@ public class Product {
 	}
 	public void setImage(List<ProductImage> image) {
 		this.image = image;
-	}
-	public Product(Long id, String name, Double price,String category,
-			String description, Double rating, String seller, Integer stock, List<String> image) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.category = category;
-		this.description = description;
-		this.rating = rating;
-		this.seller = seller;
-		this.stock = stock;
-		this.image = image.stream().map( url -> new ProductImage(url,this)).collect(Collectors.toList());
 	}
 	
 }

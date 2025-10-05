@@ -21,7 +21,6 @@ public class CartItem {
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

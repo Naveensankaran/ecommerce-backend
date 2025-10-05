@@ -1,22 +1,14 @@
 package com.naveen.dto;
 import java.util.List;
-
-import com.naveen.entity.ProductImage;
-import com.naveen.entity.ProductReview;
-public class ProductDto {
-
-	
-		
+public class ProductDto {	
 		private Long id;
 		private String name;
 		private Double price;
 		private String description;
 		private Double rating = 0.0;
 		private String seller;		
-		private Integer stock;
-		
-		private Integer numOfReview = 0;
-		
+		private Integer stock;		
+		private Integer numOfReview = 0;		
 		private String category ;
 		private List<ProductImageDto> image ;
 		private List<ProductReviewDto> review ;

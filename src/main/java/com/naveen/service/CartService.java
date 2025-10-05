@@ -145,7 +145,7 @@ public class CartService {
         cartRepo.save(cart);
     }
 
-    // Helper: Recalculate totalAmount
+    // Recalculate totalAmount
     private void recalculateTotal(Cart cart) {
         double total = 0;
         for (CartItem ci : cart.getCartItems()) {
@@ -154,7 +154,7 @@ public class CartService {
         cart.setTotalAmount(total);
     }
 
-    // ======= DTO conversion =======
+    // DTO conversion
     public CartDto convertToDto(Cart cart) {
         CartDto cartDto = new CartDto();
         cartDto.setCartId(cart.getId());

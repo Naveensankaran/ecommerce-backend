@@ -11,7 +11,6 @@ public class UserDto {
     private String phoneNumber;
     private Address address;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

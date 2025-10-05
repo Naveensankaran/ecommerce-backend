@@ -24,7 +24,6 @@ public class User {
     @Embedded
     private Address address;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

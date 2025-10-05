@@ -13,27 +13,21 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Long userId;
-
     private String userName;
     private String userEmail;
     private String userPhone;
 
     @Column(length = 500)
     private String shippingAddress;
-
     private Double totalAmount;
-
     private String status = "PENDING";
     private String paymentStatus = "NOT_PAID";
-
     private LocalDateTime orderDate = LocalDateTime.now();
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

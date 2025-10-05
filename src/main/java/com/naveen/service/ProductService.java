@@ -47,7 +47,7 @@ public class ProductService {
         return response;
     }
 
-    // ------------------- Convert Product Entity to DTO -------------------
+    // Convert Product Entity to DTO
     public ProductDto convertToDto(Product product) {
         ProductDto dto = new ProductDto();
         dto.setId(product.getId());
@@ -81,14 +81,14 @@ public class ProductService {
         return dto;
     }
 
-    // ------------------- Get Product by ID -------------------
-    public ProductDto getProductById(Long id) {
+    // Get Product by ID
+   public ProductDto getProductById(Long id) {
         Product product =  productRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found for this id: " + id));
         return convertToDto(product);
     }
 
-    // ------------------- Search Products with Filters -------------------
+    // Search Products with Filters
     public List<Product> searchProducts(String category, Double min, Double max, String keyword, Double rating) {
         Specification<Product> spec = Specification.where(ProductSpecification.hasCategory(category))
                 .and(ProductSpecification.priceBetween(min, max))
@@ -118,12 +118,12 @@ public class ProductService {
             });
         }
 
-        // Save entity
+        
         Product saved = productRepo.save(product);
         return convertToDto(saved);
     }
 
- // ------------------- Update Products with ID -------------------
+ // Update Products with ID 
     public ProductDto updateProduct(Long id, ProductDto productDto) {
         Product product = productRepo.findById(id)
             .orElseThrow(() -> new RuntimeException("Product not found"));
@@ -151,7 +151,7 @@ public class ProductService {
         return convertToDto(saved);
     }
     
-    // ------------------- Delete Products with ID -------------------
+    // Delete Products with ID 
     public void deleteProduct(Long id) {
         Product product = productRepo.findById(id)
             .orElseThrow(() -> new RuntimeException("Product not found for id: " + id));
@@ -159,24 +159,24 @@ public class ProductService {
     }
 
 
-    // ------------------- Add Review -------------------
+    // Add Review 
     public void addReview(ProductReviewDto reviewDto) {
         // Find product
         Product product = productRepo.findById(reviewDto.getId())
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
-        // Save review
+     
         ProductReview review = new ProductReview();
         review.setComment(reviewDto.getComment());
         review.setRating(reviewDto.getRating());
         review.setProduct(product);
         reviewRepo.save(review);
 
-        // Recalculate product rating & numOfReview
+  
         updateProductRatings(product);
     }
 
-    // ------------------- Recalculate Rating & Review Count -------------------
+    //  Recalculate Rating & Review Count 
     public void updateProductRatings(Product product) {
         List<ProductReview> reviews = reviewRepo.findAllByProductId(product.getId());
         int totalReviews = reviews.size();
@@ -185,7 +185,6 @@ public class ProductService {
                 .average()
                 .orElse(0.0);
 
-        // Round to 1 decimal
         averageRating = Math.round(averageRating * 10.0) / 10.0;
 
         product.setNumOfReview(totalReviews);

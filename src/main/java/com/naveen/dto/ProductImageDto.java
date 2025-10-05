@@ -1,9 +1,10 @@
 package com.naveen.dto;
 
 public class ProductImageDto {
+	private String url ;
+	
 	public ProductImageDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getUrl() {
@@ -13,7 +14,4 @@ public class ProductImageDto {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-	private String url ;
-
 }
